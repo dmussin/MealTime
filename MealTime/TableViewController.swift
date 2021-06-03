@@ -78,4 +78,39 @@ class TableViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    // Leading swipe Actions Custom
+    override func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let done = doneAction(at: indexPath) // done action
+        let favourite = favourite(at: indexPath) // favourite action
+        return UISwipeActionsConfiguration(actions: [done, favourite])
+    }
+    
+    // Done action
+    func doneAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Done") { (action, view, completion) in
+            self.objects.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        // customizing
+        action.backgroundColor = .systemOrange
+        action.image = UIImage(systemName: "trash")
+        return action
+    }
+    
+    // Favourite action
+    func favourite(at indexPath: IndexPath) -> UIContextualAction {
+        var object = objects[indexPath.row] // getting object
+        let action = UIContextualAction(style: .normal, title: "Favourite") { (action, view, completion) in
+            object.isFavorite = !object.isFavorite // changing isFavorite to oposite value
+            self.objects[indexPath.row] = object // changing object in array to the new one
+            completion(true)
+        }
+        action.backgroundColor = object.isFavorite ? .systemPurple : .systemGray // changing the background color
+        action.image = UIImage(systemName: "heart")
+        return action
+    }
+        
+    
 }
