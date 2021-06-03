@@ -11,7 +11,7 @@
         <scene sceneID="W51-GR-OhA">
             <objects>
                 <tableViewController id="k9k-51-UgE" customClass="TableViewController" customModule="MealTime" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="I2k-qC-0Ky">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="I2k-qC-0Ky">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -21,7 +21,7 @@
                         </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCell" rowHeight="66" id="V8M-3C-d4j" customClass="MealTableViewCell" customModule="MealTime" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="243.5" width="414" height="66"/>
+                                <rect key="frame" x="0.0" y="268.5" width="414" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V8M-3C-d4j" id="y5z-Cs-JKW">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -79,14 +79,10 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8gW-cQ-Tpp">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
-                                <action selector="addButtonPressed:" destination="k9k-51-UgE" id="Zce-dN-f1V"/>
                                 <segue destination="szD-Ck-dX2" kind="show" id="aEV-u5-fmW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="I2k-qC-0Ky" id="NWO-2T-HtK"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRs-XA-7Eg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,9 +190,15 @@
                     <navigationItem key="navigationItem" id="ek7-us-KsB">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nqd-q2-FVB">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <segue destination="kco-Ij-QYF" kind="unwind" identifier="cancelSegue" unwindAction="unwindSegueWithSegue:" id="src-Lq-SWU"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="YCW-zH-JSW">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <segue destination="kco-Ij-QYF" kind="unwind" identifier="saveSegue" unwindAction="unwindSegueWithSegue:" id="f08-4x-nsZ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -207,6 +209,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgE-vc-aE5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="kco-Ij-QYF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3510.144927536232" y="116.51785714285714"/>
         </scene>

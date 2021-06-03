@@ -21,6 +21,7 @@ class TableViewController: UITableViewController {
     // Array for objects
     var objects = [Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false),
     Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false),
+    Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false),
     Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false)]
     
 
@@ -31,7 +32,28 @@ class TableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = .systemOrange
     }
-
+    
+    // MARK: - Returning to main screen - unwind segue
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue){
+        guard segue.identifier == "saveSegue" else { return }
+        // getting data from another controller
+        let sourceVC = segue.source as! NewMealTableViewController
+        let meal = sourceVC.meal
+        
+        // newIndexPath
+//        let newIndexPath = IndexPath(row: objects.count, section: 0)
+//        // adding to object array
+//        objects.append(meal)
+//        tableView.insertRows(at: [newIndexPath], with: .fade)
+        
+        
+        let newIndexPath = IndexPath(row: objects.count, section: 0)
+        objects.append(meal)
+        tableView.insertRows(at: [newIndexPath], with: .fade)
+        print(objects.count)
+        
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
