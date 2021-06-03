@@ -8,7 +8,7 @@
 import UIKit
 
 class NewMealTableViewController: UITableViewController {
-
+    
     var meal = Meal(emoji: "", meal: "", date: "", isFavorite: false)
     
     @IBOutlet weak var emojiTextField: UITextField!
@@ -24,11 +24,18 @@ class NewMealTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateUI()
         updateButtonState()
-
+        
     }
-
+    
+    // Method for updating interface
+    private func updateUI(){
+        emojiTextField.text = meal.emoji
+        mealTextField.text = meal.meal
+        dateTextField.text = meal.date
+    }
+    
     // Method for checking if text field has some text
     private func updateButtonState(){
         let emojiTextField = emojiTextField.text ?? "9"

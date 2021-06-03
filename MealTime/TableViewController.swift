@@ -41,19 +41,31 @@ class TableViewController: UITableViewController {
         let sourceVC = segue.source as! NewMealTableViewController
         let meal = sourceVC.meal
         
-        // newIndexPath
-//        let newIndexPath = IndexPath(row: objects.count, section: 0)
-//        // adding to object array
-//        objects.append(meal)
-//        tableView.insertRows(at: [newIndexPath], with: .fade)
-        
-        
-        let newIndexPath = IndexPath(row: objects.count, section: 0)
-        objects.append(meal)
-        tableView.insertRows(at: [newIndexPath], with: .fade)
-        print(objects.count)
-        
+        // checking if selected cell is new
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            objects[selectedIndexPath.row] = meal
+            tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+        } else {
+            // newIndexPath
+            let newIndexPath = IndexPath(row: objects.count, section: 0)
+            // adding to object array
+            objects.append(meal)
+            tableView.insertRows(at: [newIndexPath], with: .fade)
+            print(objects.count)
+        }
     }
+    
+    override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: seque, sender: sender)
+        guard seque.identifier == "editMeal" else { return }
+        let indexPath = tableView.indexPathForSelectedRow!
+        let meal = objects[indexPath.row]
+        let navigationVC = seque.destination as! UINavigationController
+        let newMealVC = navigationVC.topViewController as! NewMealTableViewController
+        newMealVC.meal = meal
+        newMealVC.title = "Edit"
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
