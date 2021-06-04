@@ -16,12 +16,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal" id="ppz-Ah-70y">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="219"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealCell" rowHeight="66" id="V8M-3C-d4j" customClass="MealTableViewCell" customModule="MealTime" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="268.5" width="414" height="66"/>
+                                <rect key="frame" x="0.0" y="206.5" width="414" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V8M-3C-d4j" id="y5z-Cs-JKW">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -30,16 +30,16 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Mh-MJ-huZ">
                                             <rect key="frame" x="16" y="8" width="382" height="50"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="🥙" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-tE-lvY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="🥙" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOB-tE-lvY">
                                                     <rect key="frame" x="0.0" y="0.0" width="23" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K2j-oF-rGa">
+                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="K2j-oF-rGa">
                                                     <rect key="frame" x="33" y="0.0" width="349" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47d-HJ-LPi">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47d-HJ-LPi">
                                                             <rect key="frame" x="0.0" y="0.0" width="349" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -67,7 +67,6 @@
                                     <outlet property="dateLabel" destination="U7J-De-GxS" id="mGb-R0-UY8"/>
                                     <outlet property="emojiLabel" destination="KOB-tE-lvY" id="rV8-DZ-ouY"/>
                                     <outlet property="mealLabel" destination="47d-HJ-LPi" id="QAH-0R-Ru3"/>
-                                    <segue destination="szD-Ck-dX2" kind="show" identifier="editMeal" id="5iz-WE-qg3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -252,9 +251,6 @@
             <point key="canvasLocation" x="2600" y="116.51785714285714"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5iz-WE-qg3"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="meal" width="500" height="300"/>
         <systemColor name="systemBackgroundColor">

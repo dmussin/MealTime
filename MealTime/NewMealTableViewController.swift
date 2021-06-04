@@ -22,12 +22,53 @@ class NewMealTableViewController: UITableViewController {
         
     }
     
+    // Date Picker
+    let datePicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
         updateButtonState()
-        
+        createDatePicker()
     }
+    
+    // Method for DatePicker
+    private func createDatePicker(){
+        // toolbar
+        let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44.0)))
+        toolbar.sizeToFit()
+        
+        // bar done button
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneButton], animated: true)
+        
+        // assign toolbar
+        dateTextField.inputAccessoryView = toolbar
+        
+        // assign date picker to the text field
+        dateTextField.inputView = datePicker
+        
+        // Date picker mode
+        datePicker.datePickerMode = .date
+        
+        // Wheel style
+        if #available(iOS 13.4, *)  {
+        datePicker.preferredDatePickerStyle = .wheels
+        }
+    }
+    
+    //
+    @objc private func donePressed(){
+        
+        // Formatter
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        
+        dateTextField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
     
     // Method for updating interface
     private func updateUI(){
@@ -38,11 +79,11 @@ class NewMealTableViewController: UITableViewController {
     
     // Method for checking if text field has some text
     private func updateButtonState(){
-        let emojiTextField = emojiTextField.text ?? "9"
-        let mealTextField = mealTextField.text ?? "9"
-        let dateTextField = dateTextField.text ?? "9"
+        let emojiTextField = emojiTextField.text ?? ""
+        let mealTextField = mealTextField.text ?? ""
+       // let dateTextField = dateTextField.text ?? "9"
         
-        saveButton.isEnabled = !emojiTextField.isEmpty && !mealTextField.isEmpty && !dateTextField.isEmpty
+        saveButton.isEnabled = !emojiTextField.isEmpty && !mealTextField.isEmpty
     }
     
     // Method will run when we will exit second screen back to first

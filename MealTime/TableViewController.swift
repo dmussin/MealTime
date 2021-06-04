@@ -11,27 +11,25 @@ class TableViewController: UITableViewController {
     
     // Get the current date and time
     let currentDateTime = Date()
-
+    
     // Initialize the date formatter and set the stylelet date = Date()
-//    let formatter = DateFormatter()
-//    formatter.timeStyle = .short
-//    let dateString = formatter.string(from: currentDateTime)
-//
+    //    let formatter = DateFormatter()
+    //    formatter.timeStyle = .short
+    //    let dateString = formatter.string(from: currentDateTime)
+    //
     
     // Array for objects
-    var objects = [Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false),
-    Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false),
-    Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false),
-    Meal(emoji: "🍤", meal: "Shrimps", date: "Date: ", isFavorite: false)]
+    var objects = [Meal(emoji: "❗️", meal: "Swipe right to edit or give a like", date: "Date is optional", isFavorite: false)]
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Navigation button - EDIT and color set up.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         navigationItem.leftBarButtonItem?.tintColor = .systemOrange
+        
     }
+    
     
     // MARK: - Returning to main screen - unwind segue
     
@@ -64,24 +62,25 @@ class TableViewController: UITableViewController {
         let newMealVC = navigationVC.topViewController as! NewMealTableViewController
         newMealVC.meal = meal
         newMealVC.title = "Edit"
+    
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return objects.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! MealTableViewCell
-
+        
         let object = objects[indexPath.row] // getting an object by indexPath
         cell.set(object: object) // Confugurating in MealTableViewCell
         return cell
@@ -111,14 +110,15 @@ class TableViewController: UITableViewController {
         objects.insert(movedMeal, at: destinationIndexPath.row)
         tableView.reloadData()
     }
-
+    
     // Leading swipe Actions Custom
     override func tableView(_ tableView: UITableView,
-                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+                            leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let done = doneAction(at: indexPath) // done action
         let favourite = favourite(at: indexPath) // favourite action
         return UISwipeActionsConfiguration(actions: [done, favourite])
     }
+
     
     // Done action
     func doneAction(at indexPath: IndexPath) -> UIContextualAction {
@@ -145,6 +145,6 @@ class TableViewController: UITableViewController {
         action.image = UIImage(systemName: "heart")
         return action
     }
-        
+    
     
 }
