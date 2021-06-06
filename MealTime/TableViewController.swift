@@ -13,6 +13,8 @@ class TableViewController: UITableViewController {
    // Creating property for context CoreData
     var context: NSManagedObjectContext!
     
+//    var mealTime: MealTime!
+    
     // Array for objects
     var objects = [Meal(emoji: "❗️", meal: "Swipe right to give a like", date: "Date is optional", isFavorite: false)]
     
@@ -45,6 +47,13 @@ class TableViewController: UITableViewController {
             objects.append(meal)
             tableView.insertRows(at: [newIndexPath], with: .fade)
             print(objects.count)
+            
+//            let mealCD = MealTime(context: context)
+//            mealCD.meals = objects
+//
+//            let meals = mealTime.meals?.mutableCopy() as? NSMutableOrderedSet
+//            meals?.add(mealCD)
+//            mealTime = meals
         }
     }
     
@@ -87,10 +96,23 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            // deleting object from array
-            objects.remove(at: indexPath.row)
-            // deleting from table
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to delete it?", preferredStyle: .alert)
+            let reset = UIAlertAction(title: "Delete", style: .destructive) { action in
+                
+                // deleting object from array
+                self.objects.remove(at: indexPath.row)
+                // deleting from table
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            }
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            // displaying the alertController
+            alertController.addAction(cancel)
+            alertController.addAction(reset)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
