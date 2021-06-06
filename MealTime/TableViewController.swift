@@ -6,20 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
     
-    // Get the current date and time
-    let currentDateTime = Date()
-    
-    // Initialize the date formatter and set the stylelet date = Date()
-    //    let formatter = DateFormatter()
-    //    formatter.timeStyle = .short
-    //    let dateString = formatter.string(from: currentDateTime)
-    //
+   // Creating property for context CoreData
+    var context: NSManagedObjectContext!
     
     // Array for objects
-    var objects = [Meal(emoji: "❗️", meal: "Swipe right to edit or give a like", date: "Date is optional", isFavorite: false)]
+    var objects = [Meal(emoji: "❗️", meal: "Swipe right to give a like", date: "Date is optional", isFavorite: false)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +51,13 @@ class TableViewController: UITableViewController {
     override func prepare(for seque: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: seque, sender: sender)
         guard seque.identifier == "editMeal" else { return }
-        let indexPath = tableView.indexPathForSelectedRow!
-        let meal = objects[indexPath.row]
+        let indexPath = tableView.indexPathForSelectedRow
+        let meal = objects[indexPath!.row]
         let navigationVC = seque.destination as! UINavigationController
         let newMealVC = navigationVC.topViewController as! NewMealTableViewController
         newMealVC.meal = meal
         newMealVC.title = "Edit"
-    
+
     }
     
     // MARK: - Table view data source
@@ -114,24 +109,28 @@ class TableViewController: UITableViewController {
     // Leading swipe Actions Custom
     override func tableView(_ tableView: UITableView,
                             leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let done = doneAction(at: indexPath) // done action
+       // let done = doneAction(at: indexPath) // done action
         let favourite = favourite(at: indexPath) // favourite action
-        return UISwipeActionsConfiguration(actions: [done, favourite])
+        return UISwipeActionsConfiguration(actions: [favourite])
     }
 
     
     // Done action
-    func doneAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Done") { (action, view, completion) in
-            self.objects.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
-        }
-        // customizing
-        action.backgroundColor = .systemOrange
-        action.image = UIImage(systemName: "trash")
-        return action
-    }
+//    func doneAction(at indexPath: IndexPath) -> UIContextualAction {
+//        let action = UIContextualAction(style: .destructive, title: "Done") { (action, view, completion) in
+////            self.objects.remove(at: indexPath.row)
+////            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//            self.mealIndexToEdit = indexPath.row
+//            self.performSegue(withIdentifier: "editMeal", sender: nil)
+//
+//
+//            completion(true)
+//        }
+//        // customizing
+//        action.backgroundColor = .systemOrange
+//        action.image = UIImage(systemName: "edit")
+//        return action
+//    }
     
     // Favourite action
     func favourite(at indexPath: IndexPath) -> UIContextualAction {

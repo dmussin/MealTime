@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5C9E677D266947D000BC0743 /* NewMealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E677C266947D000BC0743 /* NewMealTableViewController.swift */; };
+		5C9E67A2266CC5C200BC0743 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E67A1266CC5C200BC0743 /* CoreDataStack.swift */; };
 		5CC62B282668F1DF00434155 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC62B272668F1DF00434155 /* AppDelegate.swift */; };
 		5CC62B2A2668F1DF00434155 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC62B292668F1DF00434155 /* SceneDelegate.swift */; };
-		5CC62B2C2668F1DF00434155 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC62B2B2668F1DF00434155 /* ViewController.swift */; };
 		5CC62B2F2668F1DF00434155 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC62B2D2668F1DF00434155 /* Main.storyboard */; };
 		5CC62B312668F1E200434155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC62B302668F1E200434155 /* Assets.xcassets */; };
 		5CC62B342668F1E200434155 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC62B322668F1E200434155 /* LaunchScreen.storyboard */; };
@@ -21,10 +21,10 @@
 
 /* Begin PBXFileReference section */
 		5C9E677C266947D000BC0743 /* NewMealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMealTableViewController.swift; sourceTree = "<group>"; };
+		5C9E67A1266CC5C200BC0743 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		5CC62B242668F1DE00434155 /* MealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC62B272668F1DF00434155 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CC62B292668F1DF00434155 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5CC62B2B2668F1DF00434155 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5CC62B2E2668F1DF00434155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CC62B302668F1E200434155 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CC62B332668F1E200434155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,10 +67,10 @@
 				5CC62B272668F1DF00434155 /* AppDelegate.swift */,
 				5CC62B3D266926F300434155 /* MealTableViewCell.swift */,
 				5CC62B292668F1DF00434155 /* SceneDelegate.swift */,
+				5C9E67A1266CC5C200BC0743 /* CoreDataStack.swift */,
 				5CC62B3B2668F88F00434155 /* TableViewController.swift */,
 				5C9E677C266947D000BC0743 /* NewMealTableViewController.swift */,
 				5CC62B3F2669298E00434155 /* mealModel.swift */,
-				5CC62B2B2668F1DF00434155 /* ViewController.swift */,
 				5CC62B2D2668F1DF00434155 /* Main.storyboard */,
 				5CC62B302668F1E200434155 /* Assets.xcassets */,
 				5CC62B322668F1E200434155 /* LaunchScreen.storyboard */,
@@ -149,13 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CC62B2C2668F1DF00434155 /* ViewController.swift in Sources */,
 				5CC62B282668F1DF00434155 /* AppDelegate.swift in Sources */,
 				5CC62B402669298E00434155 /* mealModel.swift in Sources */,
 				5CC62B2A2668F1DF00434155 /* SceneDelegate.swift in Sources */,
 				5C9E677D266947D000BC0743 /* NewMealTableViewController.swift in Sources */,
 				5CC62B3C2668F88F00434155 /* TableViewController.swift in Sources */,
 				5CC62B3E266926F300434155 /* MealTableViewCell.swift in Sources */,
+				5C9E67A2266CC5C200BC0743 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

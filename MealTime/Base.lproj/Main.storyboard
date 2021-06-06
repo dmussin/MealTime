@@ -67,6 +67,7 @@
                                     <outlet property="dateLabel" destination="U7J-De-GxS" id="mGb-R0-UY8"/>
                                     <outlet property="emojiLabel" destination="KOB-tE-lvY" id="rV8-DZ-ouY"/>
                                     <outlet property="mealLabel" destination="47d-HJ-LPi" id="QAH-0R-Ru3"/>
+                                    <segue destination="szD-Ck-dX2" kind="show" identifier="editMeal" id="jJd-5X-awh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -251,6 +252,9 @@
             <point key="canvasLocation" x="2600" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jJd-5X-awh"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="meal" width="500" height="300"/>
         <systemColor name="systemBackgroundColor">

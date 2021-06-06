@@ -30,8 +30,10 @@ class NewMealTableViewController: UITableViewController {
         updateUI()
         updateButtonState()
         createDatePicker()
+        
     }
     
+    // MARK: - Date Picker
     // Method for DatePicker
     private func createDatePicker(){
         // toolbar
